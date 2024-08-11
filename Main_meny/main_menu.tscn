@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6iv2f3j0rc0u"]
+[gd_scene load_steps=6 format=3 uid="uid://b6iv2f3j0rc0u"]
 
-[ext_resource type="Texture2D" uid="uid://kifdbkda4f6l" path="res://assets/bg.png" id="1_jliiq"]
+[ext_resource type="Script" path="res://Main_meny/main_menu.gd" id="1_imas2"]
 [ext_resource type="FontFile" uid="uid://dp65l0t5mj3aw" path="res://assets/font/RubikSprayPaint-Regular.ttf" id="2_aak17"]
+[ext_resource type="VideoStream" path="res://assets/fire.ogv" id="2_sxabt"]
+[ext_resource type="Theme" uid="uid://bvvrw01t671fc" path="res://assets/button1.tres" id="3_6aoc4"]
 
 [sub_resource type="SystemFont" id="SystemFont_egsxq"]
 font_names = PackedStringArray("Impact")
@@ -13,15 +15,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_imas2")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="VideoBG" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_jliiq")
+stream = ExtResource("2_sxabt")
+autoplay = true
+expand = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -74,13 +80,27 @@ layout_mode = 2
 [node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+theme = ExtResource("3_6aoc4")
 theme_override_fonts/font = SubResource("SystemFont_egsxq")
 theme_override_font_sizes/font_size = 24
 text = "Start the loop"
 
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme = ExtResource("3_6aoc4")
+theme_override_fonts/font = SubResource("SystemFont_egsxq")
+theme_override_font_sizes/font_size = 24
+text = "Change the loop"
+
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+theme = ExtResource("3_6aoc4")
 theme_override_fonts/font = SubResource("SystemFont_egsxq")
 theme_override_font_sizes/font_size = 24
 text = "Exit the loop"
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options_Button" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_button_down"]
