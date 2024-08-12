@@ -1,19 +1,18 @@
+class_name OptionsMenu
 extends Control
 
+@onready var exit_button = $MarginContainer/VBoxContainer/Exit_Button as Button
 
-# Called when the node enters the scene tree for the first time.
+signal exit_options_menu
+
 func _ready():
-	pass # Replace with function body.
+	exit_button.button_down.connect(on_exit_pressed)
+	set_process(false)
+
+func on_exit_pressed() -> void:
+	exit_options_menu.emit()
+	set_process(false)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_volume_value_changed(value):
-	AudioServer.set_bus_volume_db(0, value)
-
-
-func _on_check_box_toggled(toggled_on):
-	AudioServer.set_bus_volume_db(0, toggled_on)
+func _on_exit_button_pressed():
+	get_tree().change_scene_to_file('res://UI/main_menu.tscn')
