@@ -1,18 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://hti68fnksixb"]
+[gd_scene load_steps=11 format=3 uid="uid://hti68fnksixb"]
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_osddp"]
 [ext_resource type="Texture2D" uid="uid://lhmtmn0j1fo8" path="res://assets/bg.jpg" id="1_sthk5"]
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_xu6pt"]
 [ext_resource type="FontFile" uid="uid://dp65l0t5mj3aw" path="res://assets/font/RubikSprayPaint-Regular.ttf" id="3_lkmr4"]
+[ext_resource type="Texture2D" uid="uid://2ck8bh4dvq2t" path="res://assets/ghost.png" id="4_bf50r"]
+[ext_resource type="PackedScene" uid="uid://blyxb7662mj5t" path="res://UI/options.tscn" id="6_xafur"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bhnaa"]
+blend_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r114s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0)
 shadow_size = 5
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6cof"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1ihh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -53,6 +66,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.964706, 0.152941, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 12
 theme_override_constants/shadow_offset_y = 12
@@ -65,42 +79,67 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-alignment = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+material = SubResource("CanvasItemMaterial_bhnaa")
+layout_mode = 2
+texture = ExtResource("4_bf50r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 18
-alignment = 2
+alignment = 1
 
 [node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(160, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.196078, 0, 1)
+theme_override_colors/font_hover_color = Color(0.796078, 0.505882, 0, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_osddp")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_r114s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
 text = "Start the Loop
 "
 
 [node name="OptionButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(160, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.196078, 0, 1)
+theme_override_colors/font_hover_color = Color(0.796078, 0.505882, 0, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_osddp")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_r114s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
 text = "Change the Loop
 "
 
 [node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(160, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.196078, 0, 1)
+theme_override_colors/font_hover_color = Color(0.796078, 0.505882, 0, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_osddp")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_r114s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
 text = "Exit the Loop
 "
+
+[node name="Options" parent="." instance=ExtResource("6_xafur")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

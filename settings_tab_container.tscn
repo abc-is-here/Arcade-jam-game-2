@@ -1,0 +1,214 @@
+[gd_scene load_steps=4 format=3 uid="uid://xbwhrgeoantp"]
+
+[ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_3bxow"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwlkp"]
+font = ExtResource("1_3bxow")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvtv1"]
+font = ExtResource("1_3bxow")
+
+[node name="settings_tab_container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3bxow")
+tab_alignment = 1
+
+[node name="sound" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/sound/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "sound1"
+label_settings = SubResource("LabelSettings_kwlkp")
+
+[node name="Label2" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "sound2"
+label_settings = SubResource("LabelSettings_kwlkp")
+
+[node name="Label3" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "sound3"
+label_settings = SubResource("LabelSettings_kwlkp")
+
+[node name="Label4" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "sound4"
+label_settings = SubResource("LabelSettings_kwlkp")
+
+[node name="Label5" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "sound5"
+label_settings = SubResource("LabelSettings_kwlkp")
+
+[node name="graphics" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/graphics/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "G1"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label2" type="Label" parent="TabContainer/graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "G2"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label3" type="Label" parent="TabContainer/graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "G3"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label4" type="Label" parent="TabContainer/graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "G4"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label5" type="Label" parent="TabContainer/graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "G5"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="control" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C1"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label2" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C2"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label3" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C3"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label4" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C4"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label5" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C5"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="accesibility" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/accesibility"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/accesibility/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A1"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label2" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A2"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label3" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A3"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label4" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A4"
+label_settings = SubResource("LabelSettings_xvtv1")
+
+[node name="Label5" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A5"
+label_settings = SubResource("LabelSettings_xvtv1")
