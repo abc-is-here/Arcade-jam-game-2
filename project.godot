@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="horrorgamejam"
-run/main_scene="res://Main_meny/main_menu.tscn"
+run/main_scene="res://UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/size/mode=4
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
