@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://xbwhrgeoantp"]
+[gd_scene load_steps=5 format=3 uid="uid://xbwhrgeoantp"]
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_3bxow"]
 
@@ -7,6 +7,8 @@ font = ExtResource("1_3bxow")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvtv1"]
 font = ExtResource("1_3bxow")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r31pi"]
 
 [node name="settings_tab_container" type="Control"]
 layout_mode = 3
@@ -31,6 +33,7 @@ theme_override_fonts/font = ExtResource("1_3bxow")
 tab_alignment = 1
 
 [node name="sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/sound"]
@@ -122,7 +125,6 @@ text = "G5"
 label_settings = SubResource("LabelSettings_xvtv1")
 
 [node name="control" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/control"]
@@ -137,35 +139,21 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/control/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/control/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/control/MarginContainer/ScrollContainer"]
 layout_mode = 2
-text = "C1"
-label_settings = SubResource("LabelSettings_xvtv1")
 
-[node name="Label2" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/control/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "C2"
-label_settings = SubResource("LabelSettings_xvtv1")
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r31pi")
 
-[node name="Label3" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/control/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "C3"
-label_settings = SubResource("LabelSettings_xvtv1")
-
-[node name="Label4" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "C4"
-label_settings = SubResource("LabelSettings_xvtv1")
-
-[node name="Label5" type="Label" parent="TabContainer/control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "C5"
-label_settings = SubResource("LabelSettings_xvtv1")
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r31pi")
 
 [node name="accesibility" type="TabBar" parent="TabContainer"]
 visible = false
