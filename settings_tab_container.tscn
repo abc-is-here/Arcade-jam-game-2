@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://xbwhrgeoantp"]
+[gd_scene load_steps=6 format=3 uid="uid://xbwhrgeoantp"]
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_3bxow"]
+[ext_resource type="PackedScene" uid="uid://dcqw7w7tou7w3" path="res://UI/hotkey_rebind_button.tscn" id="2_yre3x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwlkp"]
 font = ExtResource("1_3bxow")
@@ -33,7 +34,6 @@ theme_override_fonts/font = ExtResource("1_3bxow")
 tab_alignment = 1
 
 [node name="sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/sound"]
@@ -125,13 +125,16 @@ text = "G5"
 label_settings = SubResource("LabelSettings_xvtv1")
 
 [node name="control" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/control"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 112.0
+offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
@@ -149,6 +152,9 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_r31pi")
+
+[node name="hotkey_rebind_button" parent="TabContainer/control/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_yre3x")]
+layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="TabContainer/control/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
