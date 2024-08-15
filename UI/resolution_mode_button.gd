@@ -19,21 +19,14 @@ func _ready():
 	option_button.item_selected.connect(on_res_selected)
 	centre_window()
 
-
-
-func add_resolution_item() -> void:
+func add_resolution_item():
 	for res_text in RESOLUTION_DICT:
 		option_button.add_item(res_text)
 
-func on_res_selected(index : int) -> void:
+func on_res_selected(index: int):
 	DisplayServer.window_set_size(RESOLUTION_DICT.values()[index])
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func centre_window():
-
-	var centre_screen = DisplayServer.screen_get_position() + DisplayServer.screen_get_size()/2
+	var centre_screen = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
 	var window_size = get_window().get_size_with_decorations()
-	get_window().set_position(centre_screen - window_size/2)
-
-func _process(delta):
-	pass
+	get_window().set_position(centre_screen - window_size / 2)

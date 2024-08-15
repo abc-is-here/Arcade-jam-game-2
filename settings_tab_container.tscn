@@ -2,11 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_3bxow"]
 [ext_resource type="PackedScene" uid="uid://ypuwgtfw64l8" path="res://UI/window_mode_button.tscn" id="2_7jpbg"]
+[ext_resource type="PackedScene" uid="uid://c4hykex48y86m" path="res://UI/music_control.tscn" id="2_tibg3"]
 [ext_resource type="PackedScene" uid="uid://dcqw7w7tou7w3" path="res://UI/hotkey_rebind_button.tscn" id="2_yre3x"]
 [ext_resource type="PackedScene" uid="uid://dnfiokqeqo5wu" path="res://UI/resolution_mode_button.tscn" id="3_lftg2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kwlkp"]
-font = ExtResource("1_3bxow")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvtv1"]
 font = ExtResource("1_3bxow")
@@ -36,47 +34,22 @@ tab_alignment = 1
 [node name="sound" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/sound"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/sound"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 123.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/sound/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/sound/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
+theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
+[node name="music_control" parent="TabContainer/sound/ScrollContainer/VBoxContainer" instance=ExtResource("2_tibg3")]
 layout_mode = 2
-text = "sound1"
-label_settings = SubResource("LabelSettings_kwlkp")
-
-[node name="Label2" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "sound2"
-label_settings = SubResource("LabelSettings_kwlkp")
-
-[node name="Label3" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "sound3"
-label_settings = SubResource("LabelSettings_kwlkp")
-
-[node name="Label4" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "sound4"
-label_settings = SubResource("LabelSettings_kwlkp")
-
-[node name="Label5" type="Label" parent="TabContainer/sound/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "sound5"
-label_settings = SubResource("LabelSettings_kwlkp")
 
 [node name="graphics" type="TabBar" parent="TabContainer"]
 visible = false

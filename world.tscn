@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpfu0lue3tyfv"]
+[gd_scene load_steps=16 format=3 uid="uid://bpfu0lue3tyfv"]
 
 [ext_resource type="PackedScene" uid="uid://u2dpwucgpafo" path="res://player.tscn" id="1_8u1wc"]
 [ext_resource type="Texture2D" uid="uid://c0fx1tndb1p1m" path="res://assets/sky.jpg" id="1_nrgcq"]
@@ -8,6 +8,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dwmwag7jmabsd" path="res://tree_mesh.tres" id="4_cuwmx"]
 [ext_resource type="Texture2D" uid="uid://jtjquwa4s47i" path="res://assets/ground_n.png" id="4_ucebb"]
 [ext_resource type="MeshLibrary" uid="uid://irhw75xex4kx" path="res://foliage_mesh.tres" id="5_s6jbf"]
+[ext_resource type="PackedScene" uid="uid://dj7x8ogugk3io" path="res://UI/pause.tscn" id="9_lhtew"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1tci4"]
 panorama = ExtResource("1_nrgcq")
@@ -84,3 +85,10 @@ omni_range = 15.0
 
 [node name="house" parent="." instance=ExtResource("2_qntgq")]
 transform = Transform3D(-1.6, 0, -1.39876e-07, 0, 1.6, 0, 1.39876e-07, 0, -1.6, 0, 0, 1.95955)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("9_lhtew")]
+visible = false
+
+[connection signal="hide_pause" from="CanvasLayer/Pause" to="player" method="_on_pause_hide_pause"]

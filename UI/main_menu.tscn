@@ -139,7 +139,6 @@ text = "Exit the Loop
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer"]
 stream = ExtResource("6_7uddb")
-volume_db = -15.0
 autoplay = true
 
 [node name="Options" parent="." instance=ExtResource("6_xafur")]
@@ -149,3 +148,4 @@ layout_mode = 1
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="hide_options" from="Options" to="." method="_on_options_hide_options"]

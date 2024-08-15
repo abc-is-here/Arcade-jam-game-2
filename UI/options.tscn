@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://xbwhrgeoantp" path="res://settings_tab_container.tscn" id="3_bj2te"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylj0a"]
-bg_color = Color(0.352941, 0.117647, 0, 1)
+bg_color = Color(0.270588, 0.00784314, 0.129412, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -19,6 +19,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nf7nj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.305882, 0.0352941, 0.129412, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
