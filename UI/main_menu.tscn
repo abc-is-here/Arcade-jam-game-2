@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://hti68fnksixb"]
+[gd_scene load_steps=12 format=3 uid="uid://hti68fnksixb"]
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_osddp"]
 [ext_resource type="Texture2D" uid="uid://lhmtmn0j1fo8" path="res://assets/bg.jpg" id="1_sthk5"]
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_xu6pt"]
 [ext_resource type="FontFile" uid="uid://dp65l0t5mj3aw" path="res://assets/font/RubikSprayPaint-Regular.ttf" id="3_lkmr4"]
 [ext_resource type="Texture2D" uid="uid://2ck8bh4dvq2t" path="res://assets/ghost.png" id="4_bf50r"]
+[ext_resource type="AudioStream" uid="uid://b415m4e3r1up6" path="res://assets/music/ghostly-groove-dark-ambience-230665.mp3" id="6_7uddb"]
 [ext_resource type="PackedScene" uid="uid://blyxb7662mj5t" path="res://UI/options.tscn" id="6_xafur"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bhnaa"]
@@ -135,6 +136,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
 theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
 text = "Exit the Loop
 "
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer"]
+stream = ExtResource("6_7uddb")
+volume_db = -15.0
+autoplay = true
 
 [node name="Options" parent="." instance=ExtResource("6_xafur")]
 visible = false

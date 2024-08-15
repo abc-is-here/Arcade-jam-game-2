@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xbwhrgeoantp"]
+[gd_scene load_steps=7 format=3 uid="uid://xbwhrgeoantp"]
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_3bxow"]
 [ext_resource type="PackedScene" uid="uid://ypuwgtfw64l8" path="res://UI/window_mode_button.tscn" id="2_7jpbg"]
 [ext_resource type="PackedScene" uid="uid://dcqw7w7tou7w3" path="res://UI/hotkey_rebind_button.tscn" id="2_yre3x"]
+[ext_resource type="PackedScene" uid="uid://dnfiokqeqo5wu" path="res://UI/resolution_mode_button.tscn" id="3_lftg2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwlkp"]
 font = ExtResource("1_3bxow")
@@ -98,8 +99,12 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/graphics/MarginContainer/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 64
 
 [node name="Window_mode_button" parent="TabContainer/graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_7jpbg")]
+layout_mode = 2
+
+[node name="Resolution_mode_button" parent="TabContainer/graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_lftg2")]
 layout_mode = 2
 
 [node name="control" type="TabBar" parent="TabContainer"]
