@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dj7x8ogugk3io"]
+[gd_scene load_steps=13 format=3 uid="uid://dj7x8ogugk3io"]
 
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="1_81uho"]
 [ext_resource type="Shader" path="res://UI/pause.gdshader" id="2_c3yfe"]
@@ -9,10 +9,21 @@
 shader = ExtResource("2_c3yfe")
 shader_parameter/lod = 0.8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5pcc"]
+bg_color = Color(0.25098, 0, 0.027451, 0.858824)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2gxg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8suk"]
 bg_color = Color(0.623529, 0.172549, 0.203922, 0.701961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7t6j"]
 bg_color = Color(0.623529, 0.172549, 0.203922, 0.447059)
@@ -103,12 +114,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 356.0
+offset_left = 371.0
 offset_top = 160.0
-offset_right = -356.0
+offset_right = -341.0
 offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t5pcc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2

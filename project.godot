@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 
 run/main_run_args="Godot_v4.2.1-stable_win64.exe --rendering-driver opengl3"
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [input]
 
 up={
