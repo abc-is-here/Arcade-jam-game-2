@@ -1,14 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://hti68fnksixb"]
+[gd_scene load_steps=15 format=3 uid="uid://hti68fnksixb"]
 
-[ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_osddp"]
-[ext_resource type="Texture2D" uid="uid://lhmtmn0j1fo8" path="res://assets/bg.jpg" id="1_sthk5"]
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_xu6pt"]
+[ext_resource type="Texture2D" uid="uid://bg54fwdhg0bpa" path="res://assets/spotlight.jpg" id="2_htpey"]
 [ext_resource type="FontFile" uid="uid://dp65l0t5mj3aw" path="res://assets/font/RubikSprayPaint-Regular.ttf" id="3_lkmr4"]
-[ext_resource type="Texture2D" uid="uid://2ck8bh4dvq2t" path="res://assets/ghost.png" id="4_bf50r"]
+[ext_resource type="Texture2D" uid="uid://ccckw6wdj2os6" path="res://assets/fp-2.png" id="4_msylp"]
+[ext_resource type="FontFile" uid="uid://dlc01em2ii0rn" path="res://assets/font/Creepster-Regular.ttf" id="5_dhigr"]
 [ext_resource type="AudioStream" uid="uid://b415m4e3r1up6" path="res://assets/music/ghostly-groove-dark-ambience-230665.mp3" id="6_7uddb"]
 [ext_resource type="PackedScene" uid="uid://blyxb7662mj5t" path="res://UI/options.tscn" id="6_xafur"]
+[ext_resource type="Texture2D" uid="uid://b01oh0yx73aw4" path="res://assets/bloodOverlay.jpg" id="8_ln3yk"]
+[ext_resource type="PackedScene" uid="uid://ccm16uxoy8s5m" path="res://fade_animations.tscn" id="9_35nv7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bhnaa"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aucoj"]
 blend_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r114s"]
@@ -37,14 +42,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xu6pt")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_bhnaa")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_sthk5")
+texture = ExtResource("4_msylp")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_aucoj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ln3yk")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -65,6 +81,12 @@ theme_override_constants/separation = 60
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="PointLight2D" type="PointLight2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(0, 60)
+texture = ExtResource("2_htpey")
+offset = Vector2(600, 0)
+texture_scale = 0.66
+
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.964706, 0.152941, 0, 1)
@@ -82,11 +104,6 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-material = SubResource("CanvasItemMaterial_bhnaa")
-layout_mode = 2
-texture = ExtResource("4_bf50r")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 18
@@ -101,8 +118,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.196078, 0, 1)
 theme_override_colors/font_hover_color = Color(0.796078, 0.505882, 0, 1)
 theme_override_colors/font_focus_color = Color(0.533333, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_osddp")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("5_dhigr")
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_r114s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
 theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
@@ -115,8 +132,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.196078, 0, 1)
 theme_override_colors/font_hover_color = Color(0.796078, 0.505882, 0, 1)
 theme_override_colors/font_focus_color = Color(0.533333, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_osddp")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("5_dhigr")
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_r114s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
 theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
@@ -129,13 +146,15 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.196078, 0, 1)
 theme_override_colors/font_hover_color = Color(0.796078, 0.505882, 0, 1)
 theme_override_colors/font_focus_color = Color(0.533333, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_osddp")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("5_dhigr")
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_r114s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t6cof")
 theme_override_styles/focus = SubResource("StyleBoxFlat_r1ihh")
 text = "Exit the Loop
 "
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MarginContainer/HBoxContainer"]
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer"]
 stream = ExtResource("6_7uddb")
@@ -145,7 +164,19 @@ autoplay = true
 visible = false
 layout_mode = 1
 
+[node name="Fade_animations" parent="." instance=ExtResource("9_35nv7")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="FADE_TIMER" type="Timer" parent="Fade_animations"]
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="hide_options" from="Options" to="." method="_on_options_hide_options"]
+[connection signal="timeout" from="Fade_animations/FADE_TIMER" to="." method="_on_fade_timer_timeout"]
