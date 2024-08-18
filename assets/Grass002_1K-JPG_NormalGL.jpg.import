@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5m4egi26hdu1"
+uid="uid://ctfrtduusa6jy"
 path.s3tc="res://.godot/imported/Grass002_1K-JPG_NormalGL.jpg-781a0d5b28fc7f638296d1ccf10d4ab3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://assets/Grass002_1K-JPG_NormalGL.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

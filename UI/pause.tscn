@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://blyxb7662mj5t" path="res://UI/options.tscn" id="3_q7mvy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6hgf2"]
+render_priority = 0
 shader = ExtResource("2_c3yfe")
-shader_parameter/lod = 0.8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5pcc"]
 bg_color = Color(0.25098, 0, 0.027451, 0.858824)
@@ -101,10 +101,11 @@ script = ExtResource("1_81uho")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_6hgf2")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 2
+offset_left = 371.0
+offset_top = 499.0
+offset_right = 939.0
+offset_bottom = 499.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -145,11 +146,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_b6jl1")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k7t6j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
 text = "Resume"
 
 [node name="restart" type="Button" parent="PanelContainer/VBoxContainer"]
@@ -159,11 +160,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_b6jl1")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k7t6j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
 text = "Restart"
 
 [node name="options" type="Button" parent="PanelContainer/VBoxContainer"]
@@ -173,11 +174,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_b6jl1")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k7t6j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
 text = "Options"
 
 [node name="quit" type="Button" parent="PanelContainer/VBoxContainer"]
@@ -187,11 +188,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_b6jl1")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k7t6j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_b8suk")
-theme_override_styles/focus = SubResource("StyleBoxFlat_b8suk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8suk")
 text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

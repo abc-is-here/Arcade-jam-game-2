@@ -27,13 +27,3 @@ unique_name_in_owner = true
 light_color = Color(1, 0.996078, 0.494118, 1)
 spot_range = 15.0
 spot_angle = 30.0
-
-[node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.247822, 0.525581, -0.470568)
-target_position = Vector3(0, -0.55, 0)
-
-[node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0533521, 0.0797753, 0)
-target_position = Vector3(0, -0.75, 0)

@@ -1,0 +1,12 @@
+# Blender 3.3.21 MTL File: 'myScene.blend'
+# www.blender.org
+
+newmtl foliage
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 1
+map_Kd C:/Users/ACER/Desktop/horrorjam/pre-assets/foilage.png
+map_d C:/Users/ACER/Desktop/horrorjam/pre-assets/foilage.png

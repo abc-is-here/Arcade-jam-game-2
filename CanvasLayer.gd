@@ -2,14 +2,14 @@ extends Control
 
 signal hide_pause
 
-@onready var pause_menu = $"."
+@onready var pause_menu = $PauseMenu
 @onready var options = $Options
 
 func _ready():
 	$AnimationPlayer.play("RESET")
 
-func _process(delta):
-	if Input.is_action_just_pressed("esc"):
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):  # "ui_cancel" is mapped to "Esc" by default in Godot
 		if get_tree().paused:
 			resume()
 		else:
@@ -18,6 +18,7 @@ func _process(delta):
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
+	pause_menu.visible = true  # Show the pause menu when paused
 	emit_signal("hide_pause")
 
 func resume():
@@ -36,7 +37,7 @@ func _on_options_pressed():
 	options.visible = true
 
 func _on_restart_pressed():
-	get_tree().change_scene_to_file("res://world.tscn")
+	get_tree().change_scene("res://world.tscn")
 
 func _on_options_hide_options():
 	options.visible = false

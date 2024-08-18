@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var speed = WALK_SPEED
 const WALK_SPEED = 5.0
-const SPRINT_SPEED = 8.0
+const SPRINT_SPEED = 12.0
 const JUMP_VELOCITY = 4.8
 var SENSITIVITY = 0.009
 
@@ -15,9 +15,9 @@ const FOV_CHANGE = 1.5
 
 var gravity = 9.8
 
-@onready var head = $head
-@onready var camera = $head/Camera3D
-@onready var pause = $"../CanvasLayer/Pause"
+@onready var head: Node3D = $head
+@onready var camera: Camera3D = %Camera3D
+@onready var pause: Control = $CanvasLayer/Pause
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

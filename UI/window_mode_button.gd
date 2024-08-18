@@ -20,11 +20,6 @@ func add_window_mode_items() -> void:
 	for windowMode in Window_mode_array:
 		option_button.add_item(windowMode)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func on_window_mode_selected(index: int) -> void:
 	match index:
 		0:
