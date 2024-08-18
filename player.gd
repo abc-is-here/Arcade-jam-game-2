@@ -27,11 +27,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("esc"):
-		if get_tree().paused:
-			resume_game()
-		else:
-			pause_game()
+	
 
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -69,15 +65,7 @@ func _physics_process(delta: float) -> void:
 func _headbob(time) -> Vector3:
 	return Vector3(sin(time * BOB_FREQ) * BOB_AMP, cos(time * BOB_FREQ / 2) * BOB_AMP, 0)
 
-func pause_game():
-	get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	pause.visible = true
 
-func resume_game():
-	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pause.visible = false
 
 func _on_pause_hide_pause():
 	pause.visible = false
