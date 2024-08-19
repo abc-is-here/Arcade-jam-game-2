@@ -16,14 +16,14 @@ const FOV_CHANGE = 1.5
 var gravity = 9.8
 
 @onready var head: Node3D = $head
-@onready var camera: Camera3D = %Camera3D
+@onready var camera: Camera3D = $head/Camera3D
 @onready var pause: Control = $"../CanvasLayer/Pause"
-
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	print("Game started and mouse mode set to captured.")
 
-func _unhandled_input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("esc"):
@@ -32,18 +32,21 @@ func _unhandled_input(event):
 		else:
 			pause_game()
 
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not get_tree().paused:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -40, 60)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
+	if get_tree().paused:
+		return  # Skip processing when paused
+
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
+
 	if Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
 	else:
@@ -60,7 +63,7 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.position += _headbob(t_bob)
+	camera.position = lerp(camera.position, _headbob(t_bob), delta * 2)
 	camera.fov = lerp(camera.fov, BASE_FOV + FOV_CHANGE * clamp(velocity.length(), 0.5, SPRINT_SPEED * 2), delta * 8.0)
 
 	move_and_slide()
@@ -69,14 +72,13 @@ func _headbob(time) -> Vector3:
 	return Vector3(sin(time * BOB_FREQ) * BOB_AMP, cos(time * BOB_FREQ / 2) * BOB_AMP, 0)
 
 func pause_game():
+	print("Pausing game.")
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pause.visible = true
 
 func resume_game():
+	print("Resuming game.")
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pause.visible = false
-
-func _on_pause_hide_pause():
 	pause.visible = false
