@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=9 format=3 uid="uid://c3cc6v3h4q8bm"]
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://c3cc6v3h4q8bm"]
 
 [ext_resource type="ArrayMesh" uid="uid://yeggik12lp6s" path="res://assets/Tree/Tree.obj" id="1_47lu3"]
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_nvi34"]
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_LOD_variant.gd" id="2_c4qph"]
+[ext_resource type="PackedScene" uid="uid://ti0i45u27ry8" path="res://tree_collision.tscn" id="3_4fsm4"]
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="3_qrx3m"]
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="4_3j217"]
 
@@ -10,6 +11,7 @@
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource("2_c4qph")
 mesh = ExtResource("1_47lu3")
+spawned_spatial = ExtResource("3_4fsm4")
 cast_shadow = 1
 metadata/class = "Greenhouse_LODVariant"
 
@@ -52,7 +54,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_2gx6d"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_3j217")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = ""
 plant/plant = SubResource("Resource_52cxp")
 metadata/class = "Greenhouse_PlantState"
@@ -61,5 +63,4 @@ metadata/class = "Greenhouse_PlantState"
 resource_name = "Greenhouse"
 script = ExtResource("1_nvi34")
 plant_types/greenhouse_plant_states = [SubResource("Resource_2gx6d")]
-plant_types/selected_for_edit_resource = SubResource("Resource_2gx6d")
 metadata/class = "Greenhouse"

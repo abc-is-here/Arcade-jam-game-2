@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxuw8f7kwem78"]
+[gd_scene load_steps=9 format=4 uid="uid://dxuw8f7kwem78"]
 
 [ext_resource type="PackedScene" uid="uid://c18d8k7yuohr6" path="res://assets/foliage.glb" id="1_76l0n"]
 [ext_resource type="Texture2D" uid="uid://dsosvxhdnfry8" path="res://assets/foliage_foilage.png" id="2_e8qeu"]
@@ -91,12 +91,12 @@ _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.433013, 1, 1, 0.866025),
 "format": 34896613377,
 "index_count": 18,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcACAALAAkACAAKAAsA"),
 "name": "foliage",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
-"vertex_data": PackedByteArray(255, 191, 0, 0, 0, 0, 0, 0, 255, 63, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 63, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 127, 0, 0, 255, 255, 0, 0, 255, 127, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 254, 255, 0, 0, 255, 63, 255, 255, 0, 0, 0, 0)
+"vertex_data": PackedByteArray("/78AAAAAAAD/PwAA//8AAP+///8AAAAA/z//////AAAAAAAA/38AAP//AAD/fwAAAAD///9/AAD//////38AAP+/AAD//wAA/z8AAAAAAAD/v////v8AAP8///8AAAAA")
 }]
 blend_shape_mode = 0
 
@@ -104,16 +104,16 @@ blend_shape_mode = 0
 resource_name = "foliage_Plane_002"
 _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.433013, 1, 1, 0.866025),
-"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA////////AAAAAP//AAAAAP///////wAAAAD//wAA"),
 "format": 34896613399,
 "index_count": 18,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcACAALAAkACAAKAAsA"),
 "material": SubResource("ShaderMaterial_4tgd6"),
 "name": "foliage",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
-"vertex_data": PackedByteArray(255, 191, 0, 0, 0, 0, 84, 213, 255, 63, 0, 0, 255, 255, 84, 213, 255, 191, 255, 255, 0, 0, 84, 213, 255, 63, 255, 255, 255, 255, 84, 213, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 0, 0, 255, 127, 255, 127, 0, 0, 255, 255, 255, 127, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 191, 0, 0, 255, 255, 84, 213, 255, 63, 0, 0, 0, 0, 84, 213, 255, 191, 255, 255, 254, 255, 84, 213, 255, 63, 255, 255, 0, 0, 84, 213, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0)
+"vertex_data": PackedByteArray("/78AAAAAVNX/PwAA//9U1f+///8AAFTV/z//////VNUAAAAA/3//f///AAD/f/9/AAD///9//3///////3//f/+/AAD//1TV/z8AAAAAVNX/v////v9U1f8///8AAFTV/3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iig4e")
