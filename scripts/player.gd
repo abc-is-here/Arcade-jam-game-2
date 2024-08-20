@@ -14,17 +14,16 @@ const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
 var gravity = 9.8
-var fall_damage_threshold = -10.0  # Velocity threshold for taking fall damage
-var fall_damage_multiplier = 10.0  # Multiplier for the damage based on the velocity
 
-var health = 100.0  # Player's health
+var old_vel = 0.0
+var fall_damage_thresh = 20.0
+var hurt_tween: Tween
+var health = 100
 
 @onready var head: Node3D = $head
 @onready var camera: Camera3D = $head/Camera3D
 @onready var pause: Control = $"../CanvasLayer/Pause"
-
-var is_falling = false
-var fall_start_velocity = 0.0
+@onready var hurt_tex: TextureRect = $hurt
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -49,17 +48,7 @@ func _physics_process(delta: float) -> void:
 		return  # Skip processing when paused
 
 	if not is_on_floor():
-		if !is_falling:
-			is_falling = true
-			fall_start_velocity = velocity.y
 		velocity.y -= gravity * delta
-	else:
-		if is_falling:
-			is_falling = false
-			if velocity.y < fall_damage_threshold:
-				var fall_damage = -velocity.y * fall_damage_multiplier
-				apply_fall_damage(fall_damage)
-		velocity.y = 0.0
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -84,6 +73,15 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, BASE_FOV + FOV_CHANGE * clamp(velocity.length(), 0.5, SPRINT_SPEED * 2), delta * 8.0)
 
 	move_and_slide()
+	
+	if old_vel < 0:
+		var diff = velocity.y - old_vel
+		if diff > fall_damage_thresh:
+			hurt(diff-fall_damage_thresh)
+	old_vel = velocity.y
+	
+	if health<=0:
+		get_tree().change_scene_to_file("res://noEnd.tscn")
 
 func _headbob(time) -> Vector3:
 	return Vector3(sin(time * BOB_FREQ) * BOB_AMP, cos(time * BOB_FREQ / 2) * BOB_AMP, 0)
@@ -100,15 +98,10 @@ func resume_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pause.visible = false
 
-func apply_fall_damage(damage: float) -> void:
+func hurt(damage: float):
 	health -= damage
-	print("Player took fall damage: ", damage)
-	print("Player health: ", health)
-	if health <= 0:
-		player_die()
-
-func player_die() -> void:
-	print("Player has died.")
-	# Handle player death (e.g., respawn, game over screen, etc.)
-	# For now, we'll just reset the health to 100 as an example.
-	health = 100.0
+	hurt_tex.modulate = Color.WHITE
+	if hurt_tween:
+		hurt_tween.kill()
+	hurt_tween = create_tween()
+	hurt_tween.tween_property(hurt_tex, "modulate", Color.TRANSPARENT, 0.5)
