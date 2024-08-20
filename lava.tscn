@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=3 uid="uid://cppsx7n7msqqr"]
+
+[ext_resource type="Texture2D" uid="uid://bne520ioxrksm" path="res://assets/Lava004_1K-JPG/Lava004_1K-JPG_Color.jpg" id="1_q1drp"]
+[ext_resource type="Texture2D" uid="uid://cdn18xb25qtwe" path="res://assets/Lava004_1K-JPG/Lava004_1K-JPG_Emission.jpg" id="2_21ry7"]
+[ext_resource type="Texture2D" uid="uid://dia3v5d7wj5an" path="res://assets/Lava004_1K-JPG/Lava004_1K-JPG_Displacement.jpg" id="3_reklt"]
+[ext_resource type="Texture2D" uid="uid://c1g4htevc24gt" path="res://assets/Lava004_1K-JPG/Lava004_1K-JPG_NormalGL.jpg" id="4_r2l8u"]
+[ext_resource type="Texture2D" uid="uid://bik8sa861wfqb" path="res://assets/Lava004_1K-JPG/Lava004_1K-JPG_Roughness.jpg" id="5_8xg73"]
+[ext_resource type="Script" path="res://lava.gd" id="6_xey5t"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ebv03"]
+subdivide_width = 200
+subdivide_depth = 200
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to6m1"]
+albedo_texture = ExtResource("1_q1drp")
+roughness_texture = ExtResource("5_8xg73")
+emission_enabled = true
+emission_texture = ExtResource("2_21ry7")
+normal_enabled = true
+normal_texture = ExtResource("4_r2l8u")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_reklt")
+
+[node name="lava" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_ebv03")
+surface_material_override/0 = SubResource("StandardMaterial3D_to6m1")
+script = ExtResource("6_xey5t")

@@ -32,7 +32,7 @@ transform = Transform3D(0.01, 0, 0, 0, -0.00963425, 0.00267978, 0, -0.00267978, 
 [node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D/torch"]
 transform = Transform3D(0.998703, -0.017898, -0.0476752, -0.0136465, -0.996022, 0.0880551, -0.0490615, -0.0872902, -0.994974, 0, 5.93633, 29.4877)
 light_color = Color(0.819608, 0.698039, 0, 1)
-light_energy = 8.742
+light_energy = 16.0
 light_indirect_energy = 0.0
 light_size = 0.315
 spot_range = 261.624
