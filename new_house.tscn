@@ -184,8 +184,8 @@ size = Vector3(27.5613, 47.632, 59.5176)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ahsyk"]
 size = Vector3(32.9522, 51.8403, 32.7323)
 
-[sub_resource type="Animation" id="Animation_isk8m"]
-resource_name = "door_open"
+[sub_resource type="Animation" id="Animation_1o3ys"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -193,10 +193,10 @@ tracks/0/path = NodePath("door1:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.349066)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -205,10 +205,10 @@ tracks/1/path = NodePath("door 2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.872665, 0, 0)]
+"values": [Vector3(0, -6.28319, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_71via"]
@@ -238,8 +238,8 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, -0.349066), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_1o3ys"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_isk8m"]
+resource_name = "door_open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -247,10 +247,10 @@ tracks/0/path = NodePath("door1:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.349066)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -259,10 +259,10 @@ tracks/1/path = NodePath("door 2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -6.28319, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.872665, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6fl07"]
@@ -291,7 +291,7 @@ mesh = SubResource("ArrayMesh_qg8k1")
 skeleton = NodePath("")
 
 [node name="door 2" type="MeshInstance3D" parent="doors" groups=["doors"]]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -4.46638e-06, 0, 1, 0, 4.46638e-06, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vt4kd")
 skeleton = NodePath("")
 

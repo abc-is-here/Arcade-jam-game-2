@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://u2dpwucgpafo"]
+[gd_scene load_steps=5 format=3 uid="uid://u2dpwucgpafo"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_c27lh"]
+[ext_resource type="PackedScene" uid="uid://cvsopaadenei" path="res://assets/models/flash_light_for_games.glb" id="2_o3txi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_knuir"]
 
@@ -24,8 +25,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366474, 1.69112, 0)
 [node name="Camera3D" type="Camera3D" parent="head"]
 unique_name_in_owner = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D"]
-light_color = Color(1, 0.996078, 0.494118, 1)
-light_energy = 3.193
-spot_range = 4096.0
-spot_angle = 30.0
+[node name="torch" parent="head/Camera3D" instance=ExtResource("2_o3txi")]
+transform = Transform3D(0.01, 0, 0, 0, -0.00963425, 0.00267978, 0, -0.00267978, -0.00963425, 0.509672, -0.253119, -0.52431)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D/torch"]
+transform = Transform3D(0.998703, -0.017898, -0.0476752, -0.0136465, -0.996022, 0.0880551, -0.0490615, -0.0872902, -0.994974, 0, 5.93633, 29.4877)
+light_color = Color(0.819608, 0.698039, 0, 1)
+light_energy = 8.742
+light_indirect_energy = 0.0
+light_size = 0.315
+spot_range = 261.624
+spot_angle = 24.8276
