@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3waegmid8upq"
+path="res://.godot/imported/uploads_files_2535335_Almirah.obj-a962ab2fac5591bca8c8e39a2a38ac25.mesh"
+
+[deps]
+
+files=["res://.godot/imported/uploads_files_2535335_Almirah.obj-a962ab2fac5591bca8c8e39a2a38ac25.mesh"]
+
+source_file="res://assets/models/room1/almirah/uploads_files_2535335_Almirah.obj"
+dest_files=["res://.godot/imported/uploads_files_2535335_Almirah.obj-a962ab2fac5591bca8c8e39a2a38ac25.mesh", "res://.godot/imported/uploads_files_2535335_Almirah.obj-a962ab2fac5591bca8c8e39a2a38ac25.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

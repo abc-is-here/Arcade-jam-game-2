@@ -1,0 +1,100 @@
+[gd_scene load_steps=22 format=3 uid="uid://by7d12qshs2rh"]
+
+[ext_resource type="Texture2D" uid="uid://cg4b8a3233ivm" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_Color.jpg" id="1_5qnk8"]
+[ext_resource type="Texture2D" uid="uid://c1jbit7jvdi8i" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_AmbientOcclusion.jpg" id="2_aq50b"]
+[ext_resource type="Texture2D" uid="uid://bgjfpbcsmvjec" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_Displacement.jpg" id="3_s5550"]
+[ext_resource type="Texture2D" uid="uid://bt2o5uxhwtpok" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_NormalGL.jpg" id="4_eeyiq"]
+[ext_resource type="Texture2D" uid="uid://bn0v1r7j4fce2" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_Roughness.jpg" id="5_imugu"]
+[ext_resource type="ArrayMesh" uid="uid://d3waegmid8upq" path="res://assets/models/room1/almirah/uploads_files_2535335_Almirah.obj" id="6_snh01"]
+[ext_resource type="Texture2D" uid="uid://dm8s328rd72w8" path="res://assets/models/room1/PaintedPlaster010_1K-JPG/PaintedPlaster010_1K-JPG_Color.jpg" id="6_ug2rm"]
+[ext_resource type="Texture2D" uid="uid://deggfa75lcfx8" path="res://assets/models/room1/PaintedPlaster010_1K-JPG/PaintedPlaster010_1K-JPG_AmbientOcclusion.jpg" id="7_bdqq0"]
+[ext_resource type="Texture2D" uid="uid://buviwcocfgqm7" path="res://assets/models/room1/almirah/uploads_files_2535335_Texture/Texture/Almera_Almirah_AlbedoTransparency.png" id="7_u8aq5"]
+[ext_resource type="Texture2D" uid="uid://teskd05qa7gh" path="res://assets/models/room1/PaintedPlaster010_1K-JPG/PaintedPlaster010_1K-JPG_Displacement.jpg" id="8_f1s2u"]
+[ext_resource type="Texture2D" uid="uid://damcgl7gftbh4" path="res://assets/models/room1/almirah/uploads_files_2535335_Texture/Texture/Almera_Almirah_MetallicSmoothness.png" id="8_lwdt8"]
+[ext_resource type="Texture2D" uid="uid://cmfh8m5jyk6t1" path="res://assets/models/room1/PaintedPlaster010_1K-JPG/PaintedPlaster010_1K-JPG_NormalGL.jpg" id="9_7vt2p"]
+[ext_resource type="Texture2D" uid="uid://bbtaxi4m3pioe" path="res://assets/models/room1/almirah/uploads_files_2535335_Texture/Texture/Almera_Almirah_Normal.png" id="9_nsswu"]
+[ext_resource type="Texture2D" uid="uid://euiu302i1uq1" path="res://assets/models/room1/PaintedPlaster010_1K-JPG/PaintedPlaster010_1K-JPG_Roughness.jpg" id="10_61a2s"]
+[ext_resource type="ArrayMesh" uid="uid://b8cjghky7cq0r" path="res://assets/models/room1/bed.obj/3d-model.obj" id="15_bvfef"]
+[ext_resource type="ArrayMesh" uid="uid://1coctfytin6j" path="res://assets/models/room1/rocking chair/uploads_files_1868123_rocking+chair.obj" id="16_wjep5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jfby"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rq8q2"]
+albedo_texture = ExtResource("1_5qnk8")
+roughness_texture = ExtResource("5_imugu")
+normal_enabled = true
+normal_texture = ExtResource("4_eeyiq")
+ao_enabled = true
+ao_texture = ExtResource("2_aq50b")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_s5550")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn4n1"]
+albedo_texture = ExtResource("6_ug2rm")
+roughness_texture = ExtResource("10_61a2s")
+normal_enabled = true
+normal_texture = ExtResource("9_7vt2p")
+ao_enabled = true
+ao_texture = ExtResource("7_bdqq0")
+heightmap_enabled = true
+heightmap_texture = ExtResource("8_f1s2u")
+uv1_offset = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8jr4"]
+albedo_texture = ExtResource("7_u8aq5")
+metallic = 1.0
+metallic_texture = ExtResource("8_lwdt8")
+normal_enabled = true
+normal_texture = ExtResource("9_nsswu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otp0k"]
+albedo_texture = ExtResource("1_5qnk8")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="walls and floors" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls and floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24622, -0.434143, -2.61428)
+material_override = SubResource("StandardMaterial3D_1jfby")
+material_overlay = SubResource("StandardMaterial3D_rq8q2")
+size = Vector3(9.98901, 0.131714, 7.62856)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls and floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24622, 7.03306, -2.61428)
+material_override = SubResource("StandardMaterial3D_mn4n1")
+size = Vector3(9.98901, 0.131714, 7.62856)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="walls and floors"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.24622, 3.28736, 1.16052)
+material_override = SubResource("StandardMaterial3D_mn4n1")
+size = Vector3(9.98901, 0.131714, 7.62856)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls and floors"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -6.36516, 3.28736, -2.83358)
+material_override = SubResource("StandardMaterial3D_mn4n1")
+size = Vector3(9.98901, 0.131714, 7.62856)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="walls and floors"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 3.59357, 3.28736, -2.83358)
+material_override = SubResource("StandardMaterial3D_mn4n1")
+size = Vector3(9.98901, 0.131714, 7.62856)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="walls and floors"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.24622, 3.28736, -6.53004)
+material_override = SubResource("StandardMaterial3D_mn4n1")
+size = Vector3(9.98901, 0.131714, 7.62856)
+
+[node name="almirah" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.352088, 0.671437)
+mesh = ExtResource("6_snh01")
+surface_material_override/0 = SubResource("StandardMaterial3D_k8jr4")
+
+[node name="bed" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -3.61005, -0.42538, 0.349645)
+mesh = ExtResource("15_bvfef")
+
+[node name="chair" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00110454, 0, -0.00792338, 0, 0.008, 0, 0.00792338, 0, 0.00110454, 0, 1.01443, -4.89431)
+material_override = SubResource("StandardMaterial3D_otp0k")
+mesh = ExtResource("16_wjep5")
