@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://u2dpwucgpafo"]
+[gd_scene load_steps=9 format=3 uid="uid://u2dpwucgpafo"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_c27lh"]
 [ext_resource type="PackedScene" uid="uid://cvsopaadenei" path="res://assets/models/flash_light_for_games.glb" id="2_ipano"]
 [ext_resource type="Script" path="res://assets/models/flash_light_for_games.gd" id="3_eewhn"]
+[ext_resource type="Script" path="res://torch.gd" id="4_7e1vy"]
 [ext_resource type="Texture2D" uid="uid://c2tswsgih11gv" path="res://assets/hurt.png" id="4_g4q0c"]
 [ext_resource type="PackedScene" uid="uid://dj7x8ogugk3io" path="res://UI/pause.tscn" id="5_0ps4g"]
 
@@ -40,9 +41,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 spot_range = 4096.0
 spot_angle = 15.0
+script = ExtResource("4_7e1vy")
 
 [node name="hurt" type="TextureRect" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

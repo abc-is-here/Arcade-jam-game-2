@@ -220,6 +220,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.9462, 23.9964, 34.8786)
 shape = SubResource("BoxShape3D_gg22l")
 
 [connection signal="body_entered" from="door1" to="door1" method="_on_body_entered"]
-[connection signal="body_exited" from="door1" to="door1" method="_on_body_exited"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
 [connection signal="body_exited" from="door2" to="door2" method="_on_body_exited"]

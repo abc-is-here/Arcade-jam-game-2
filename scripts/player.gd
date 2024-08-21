@@ -69,6 +69,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+	else:
+		# Stop the player when there is no input
+		velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+		velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
 
 		t_bob += delta * velocity.length() * float(is_on_floor())
 		camera.position = lerp(camera.position, _headbob(t_bob), delta * 2)
@@ -76,11 +80,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Apply fall damage only when landing
 	if is_on_floor() and old_vel < -fall_damage_thresh:
 		hurt(abs(old_vel) - fall_damage_thresh)
 
-	# Update old_vel only when in the air
 	if not is_on_floor():
 		old_vel = velocity.y
 
