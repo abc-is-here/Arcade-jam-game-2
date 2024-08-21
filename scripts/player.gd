@@ -81,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	old_vel = velocity.y
 	
 	if health<=0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://noEnd.tscn")
 
 func _headbob(time) -> Vector3:
