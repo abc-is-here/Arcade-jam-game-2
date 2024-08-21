@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://n06sirxqvoy5"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_raq14"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lv5lp"]
+albedo_color = Color(1.5, 1, 1.5, 0.864)
+emission_enabled = true
+emission = Color(1, 0.207523, 0.832886, 1)
+ao_enabled = true
+ao_light_affect = 1.0
+
+[node name="fly" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702948, 0)
+mesh = SubResource("PrismMesh_raq14")
+surface_material_override/0 = SubResource("StandardMaterial3D_lv5lp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75243, 0)
+light_color = Color(1, 0.254902, 1, 1)
+light_energy = 3.581
+omni_range = 6.076
