@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xbwhrgeoantp"]
+[gd_scene load_steps=6 format=3 uid="uid://xbwhrgeoantp"]
 
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="1_3bxow"]
 [ext_resource type="PackedScene" uid="uid://ypuwgtfw64l8" path="res://UI/window_mode_button.tscn" id="2_7jpbg"]
 [ext_resource type="PackedScene" uid="uid://c4hykex48y86m" path="res://UI/music_control.tscn" id="2_tibg3"]
 [ext_resource type="PackedScene" uid="uid://dcqw7w7tou7w3" path="res://UI/hotkey_rebind_button.tscn" id="2_yre3x"]
 [ext_resource type="PackedScene" uid="uid://dnfiokqeqo5wu" path="res://UI/resolution_mode_button.tscn" id="3_lftg2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xvtv1"]
-font = ExtResource("1_3bxow")
 
 [node name="settings_tab_container" type="Control"]
 layout_mode = 3
@@ -30,9 +27,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_3bxow")
 tab_alignment = 1
+current_tab = 0
 
 [node name="sound" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/sound"]
 layout_mode = 1
@@ -54,6 +53,7 @@ layout_mode = 2
 [node name="graphics" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/graphics"]
 layout_mode = 1
@@ -85,6 +85,7 @@ visible = false
 layout_mode = 2
 tab_alignment = 1
 max_tab_width = 1000
+metadata/_tab_index = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="TabContainer/control"]
 layout_mode = 1
@@ -105,49 +106,3 @@ alignment = 1
 
 [node name="hotkey_rebind_button" parent="TabContainer/control/MarginContainer2/VBoxContainer" instance=ExtResource("2_yre3x")]
 layout_mode = 2
-
-[node name="accesibility" type="TabBar" parent="TabContainer"]
-visible = false
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/accesibility"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/accesibility/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="Label" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "A1"
-label_settings = SubResource("LabelSettings_xvtv1")
-
-[node name="Label2" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "A2"
-label_settings = SubResource("LabelSettings_xvtv1")
-
-[node name="Label3" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "A3"
-label_settings = SubResource("LabelSettings_xvtv1")
-
-[node name="Label4" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "A4"
-label_settings = SubResource("LabelSettings_xvtv1")
-
-[node name="Label5" type="Label" parent="TabContainer/accesibility/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "A5"
-label_settings = SubResource("LabelSettings_xvtv1")

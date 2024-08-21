@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://cd5urg23bp2ly"]
+[gd_scene load_steps=19 format=4 uid="uid://cd5urg23bp2ly"]
 
 [ext_resource type="Texture2D" uid="uid://cwbqcwlxvy1v3" path="res://assets/models/new_house_Plants 2.jpg-Plants 2 mask.png" id="1_3jfor"]
 [ext_resource type="Texture2D" uid="uid://byrdfoupxhad1" path="res://assets/models/new_house_Plants1.jpg-Plants 1 mask.png" id="2_vydto"]
 [ext_resource type="Texture2D" uid="uid://bp56787f7tk2m" path="res://assets/models/new_house_House body.jpg" id="3_4a7m8"]
 [ext_resource type="Texture2D" uid="uid://4sn1bt5bgbre" path="res://assets/models/new_house_House Bump.jpg" id="4_tcfj3"]
 [ext_resource type="Script" path="res://doors.gd" id="5_3dirb"]
+[ext_resource type="Script" path="res://door_2.gd" id="6_ffg8y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qnsq"]
 resource_name = "Standard_2"
@@ -144,6 +145,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_52r1m")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahsyk"]
+size = Vector3(32.9522, 51.8403, 32.7323)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_d8hr5"]
 _surfaces = [{
 "aabb": AABB(-95.8953, 1.04769, 46.589, 24.0438, 41.5057, 2.6073),
@@ -181,97 +185,6 @@ shadow_mesh = SubResource("ArrayMesh_d8hr5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_gg22l"]
 size = Vector3(27.5613, 47.632, 59.5176)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ahsyk"]
-size = Vector3(32.9522, 51.8403, 32.7323)
-
-[sub_resource type="Animation" id="Animation_1o3ys"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("door1:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("door 2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -6.28319, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_71via"]
-resource_name = "door_close"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("door 2:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.872665, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("door1:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -0.349066), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_isk8m"]
-resource_name = "door_open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("door1:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.349066)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("door 2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.872665, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fl07"]
-_data = {
-"RESET": SubResource("Animation_1o3ys"),
-"door_close": SubResource("Animation_71via"),
-"door_open": SubResource("Animation_isk8m")
-}
-
 [node name="new_house" type="Node3D"]
 
 [node name="Old House 2 3D Models" type="MeshInstance3D" parent="."]
@@ -283,30 +196,30 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Old House 2 3D Models/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_50ljp")
 
-[node name="doors" type="Area3D" parent="."]
+[node name="door1" type="Area3D" parent="."]
 script = ExtResource("5_3dirb")
 
-[node name="door1" type="MeshInstance3D" parent="doors" groups=["doors"]]
+[node name="door1" type="MeshInstance3D" parent="door1" groups=["doors"]]
 mesh = SubResource("ArrayMesh_qg8k1")
 skeleton = NodePath("")
 
-[node name="door 2" type="MeshInstance3D" parent="doors" groups=["doors"]]
+[node name="door1Collision" type="CollisionShape3D" parent="door1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.313, 29.3152, -25.9254)
+shape = SubResource("BoxShape3D_ahsyk")
+
+[node name="door2" type="Area3D" parent="."]
+script = ExtResource("6_ffg8y")
+
+[node name="door 2" type="MeshInstance3D" parent="door2" groups=["doors"]]
 transform = Transform3D(1, 0, -4.46638e-06, 0, 1, 0, 4.46638e-06, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vt4kd")
 skeleton = NodePath("")
 
-[node name="door2Collision" type="CollisionShape3D" parent="doors"]
+[node name="door2Collision" type="CollisionShape3D" parent="door2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.9462, 23.9964, 34.8786)
 shape = SubResource("BoxShape3D_gg22l")
 
-[node name="door1Collision" type="CollisionShape3D" parent="doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.313, 29.3152, -25.9254)
-shape = SubResource("BoxShape3D_ahsyk")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="doors"]
-libraries = {
-"": SubResource("AnimationLibrary_6fl07")
-}
-
-[connection signal="body_entered" from="doors" to="doors" method="_on_body_entered"]
-[connection signal="body_exited" from="doors" to="doors" method="_on_body_exited"]
+[connection signal="body_entered" from="door1" to="door1" method="_on_body_entered"]
+[connection signal="body_exited" from="door1" to="door1" method="_on_body_exited"]
+[connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
+[connection signal="body_exited" from="door2" to="door2" method="_on_body_exited"]
