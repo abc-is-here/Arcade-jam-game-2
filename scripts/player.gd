@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-var speed = WALK_SPEED
 const WALK_SPEED = 10.0
 const SPRINT_SPEED = 18.0
 const JUMP_VELOCITY = 6.8
@@ -24,6 +23,8 @@ var health = 100
 @onready var camera: Camera3D = $head/Camera3D
 @onready var pause: Control = $"../CanvasLayer/Pause"
 @onready var hurt_tex: TextureRect = $hurt
+
+var speed = WALK_SPEED
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -59,32 +60,35 @@ func _physics_process(delta: float) -> void:
 		speed = WALK_SPEED
 
 	var input_dir = Input.get_vector("left", "right", "up", "down")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if input_dir != Vector2.ZERO:
+		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	if is_on_floor():
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		if is_on_floor():
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+		else:
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.position = lerp(camera.position, _headbob(t_bob), delta * 2)
-	camera.fov = lerp(camera.fov, BASE_FOV + FOV_CHANGE * clamp(velocity.length(), 0.5, SPRINT_SPEED * 2), delta * 8.0)
+		t_bob += delta * velocity.length() * float(is_on_floor())
+		camera.position = lerp(camera.position, _headbob(t_bob), delta * 2)
+		camera.fov = lerp(camera.fov, BASE_FOV + FOV_CHANGE * clamp(velocity.length(), 0.5, SPRINT_SPEED * 2), delta * 8.0)
 
 	move_and_slide()
-	
-	if old_vel < 0:
-		var diff = velocity.y - old_vel
-		if diff > fall_damage_thresh:
-			hurt(diff-fall_damage_thresh)
-	old_vel = velocity.y
-	
-	if health<=0:
+
+	# Apply fall damage only when landing
+	if is_on_floor() and old_vel < -fall_damage_thresh:
+		hurt(abs(old_vel) - fall_damage_thresh)
+
+	# Update old_vel only when in the air
+	if not is_on_floor():
+		old_vel = velocity.y
+
+	if health <= 0:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://noEnd.tscn")
 
-func _headbob(time) -> Vector3:
+func _headbob(time: float) -> Vector3:
 	return Vector3(sin(time * BOB_FREQ) * BOB_AMP, cos(time * BOB_FREQ / 2) * BOB_AMP, 0)
 
 func pause_game():
