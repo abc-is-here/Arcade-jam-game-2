@@ -1,0 +1,11 @@
+Model Information:
+* title:	Halloween Cursed Pumpkin
+* source:	https://sketchfab.com/3d-models/halloween-cursed-pumpkin-b08c106146a340a880dd483467ea5eb5
+* author:	napka (https://sketchfab.com/napka)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Halloween Cursed Pumpkin" (https://sketchfab.com/3d-models/halloween-cursed-pumpkin-b08c106146a340a880dd483467ea5eb5) by napka (https://sketchfab.com/napka) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

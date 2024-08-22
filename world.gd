@@ -1,8 +1,9 @@
 extends Node3D
 
-@onready var player: CharacterBody3D = $player
-
-
+var player
 
 func _ready():
-	$Fade_animations/AnimationPlayer.play("fade_out")
+	player = get_node("/root/" + get_tree().current_scene.name + "/player")
+
+func _process(delta: float) -> void:
+	get_tree().call_group("monster", "update_target_location", player.global_transform.origin)
