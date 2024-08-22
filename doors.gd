@@ -7,5 +7,6 @@ func _on_area3d_body_entered(body):
 		change_scene()
 
 func change_scene():
-	var room1_scene = preload("res://room1.tscn")
-	get_tree().change_scene_to(room1_scene)
+	#var room1_scene = preload("res://room1.tscn")
+	#et_tree().change_scene_to(room1_scene)
+	GlobalVars.goto_scene("res://room1.tscn")

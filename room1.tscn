@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://by7d12qshs2rh"]
+[gd_scene load_steps=34 format=4 uid="uid://by7d12qshs2rh"]
 
 [ext_resource type="Texture2D" uid="uid://cg4b8a3233ivm" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_Color.jpg" id="1_5qnk8"]
 [ext_resource type="Texture2D" uid="uid://c1jbit7jvdi8i" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_AmbientOcclusion.jpg" id="2_aq50b"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://nsyqkx1yvq3c" path="res://attack.tscn" id="18_7w4pu"]
 [ext_resource type="Texture2D" uid="uid://bp56787f7tk2m" path="res://assets/models/new_house_House body.jpg" id="19_0tx8o"]
 [ext_resource type="Texture2D" uid="uid://4sn1bt5bgbre" path="res://assets/models/new_house_House Bump.jpg" id="20_5caee"]
+[ext_resource type="PackedScene" uid="uid://u2dpwucgpafo" path="res://player.tscn" id="21_unx5j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jfby"]
 
@@ -187,3 +188,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74095, 0.132076, -2.01444)
 transform = Transform3D(0.00175047, 0, -0.0999847, 0, 0.1, 0, 0.0999847, 0, 0.00175047, -2.83149, -0.588031, -27.7991)
 mesh = SubResource("ArrayMesh_kcfox")
 skeleton = NodePath("")
+
+[node name="player" parent="." instance=ExtResource("21_unx5j")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.725598, 0, -5.08224)
