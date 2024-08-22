@@ -1,29 +1,15 @@
 extends CharacterBody3D
 
-var SPEED = 4
+var speed: float = 3.0
 var player
-var caught = false
-var distance: float
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@export var turn_speed = 4.0
 
-func _ready():
-	player = get_node("/root/" + get_tree().current_scene.name + "/player")
-	
-func _physics_process(delta):
-	if visible:
-		if not is_on_floor():
-			velocity.y += gravity * delta
-		var current_location = global_transform.origin
-		var next_location = $NavigationAgent3D.get_next_path_position()
-		var new_velocity = (next_location - current_location).normalized() * SPEED
-		$NavigationAgent3D.set_velocity(new_velocity)
-		var look_dir = atan2(-velocity.x, velocity.z)
-		rotation.y = look_dir
-		distance = player.global_transform.origin.distance_to(global_transform.origin)
+func _ready() -> void:
+	player = get_tree().get_nodes_in_group('player')[0]
 
-func update_target_location(target_location):
-	$NavigationAgent3D.target_position = target_location
-
-func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
-	velocity = velocity.move_toward(safe_velocity, 0.25)
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	$faceDirection.look_at(player.global_transform.origin, Vector3.UP)
+	rotate_y(deg_to_rad($faceDirection.rotation.y * turn_speed))
+	$NavigationAgent3D.set_target_position(player.global_transform.origin)
+	var velocity = ($NavigationAgent3D.get_next_path_position() - transform.origin).normalized() * speed * delta
+	move_and_collide(velocity)
