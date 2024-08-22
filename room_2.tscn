@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bciu4aaeii5ly"]
+[gd_scene load_steps=32 format=4 uid="uid://bciu4aaeii5ly"]
 
 [ext_resource type="Texture2D" uid="uid://cg4b8a3233ivm" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_Color.jpg" id="1_8e06u"]
 [ext_resource type="Texture2D" uid="uid://c1jbit7jvdi8i" path="res://assets/models/room1/WoodFloor041_1K-JPG/WoodFloor041_1K-JPG_AmbientOcclusion.jpg" id="2_ey8ij"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://4sn1bt5bgbre" path="res://assets/models/new_house_House Bump.jpg" id="18_j2ewu"]
 [ext_resource type="PackedScene" uid="uid://ckheb4m78xdis" path="res://assets/models/psx-low-poly-victorian-clock/source/model.gltf" id="19_rvtp2"]
 [ext_resource type="FontFile" uid="uid://dw7kouprdlve2" path="res://assets/font/Chunk Five Print.otf" id="20_x25wv"]
+[ext_resource type="PackedScene" uid="uid://u2dpwucgpafo" path="res://player.tscn" id="21_420kj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rn4t"]
 
@@ -198,3 +199,6 @@ theme_override_colors/font_color = Color(0.371818, 0, 0, 1)
 theme_override_fonts/font = ExtResource("20_x25wv")
 theme_override_font_sizes/font_size = 64
 text = "You are safe here!"
+
+[node name="player" parent="." instance=ExtResource("21_420kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0982696, 0.516069, -5.09853)
