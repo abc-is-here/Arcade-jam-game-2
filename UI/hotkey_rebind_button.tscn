@@ -57,11 +57,11 @@ focus_mode = 0
 theme_override_colors/font_color = Color(0.513726, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_cuk06")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_gbh2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gbh2m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gbh2m")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_gbh2m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gbh2m")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_gbh2m")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_gbh2m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gbh2m")
 text = "Reset to default"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
